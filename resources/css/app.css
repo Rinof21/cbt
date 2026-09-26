@@ -1,0 +1,63 @@
+﻿@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+    * {
+        box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md active:scale-95;
+    }
+    .btn-danger {
+        @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-sm font-semibold rounded-xl transition-all duration-200 shadow-sm hover:shadow-md active:scale-95;
+    }
+    .btn-outline {
+        @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 transition-all duration-200;
+    }
+    .card {
+        @apply bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700;
+    }
+    .form-input {
+        @apply w-full border border-slate-300 dark:border-slate-600 rounded-xl px-4 py-2.5 text-sm bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition;
+    }
+    .badge {
+        @apply inline-flex items-center px-2.5 py-1 rounded-lg text-xs font-semibold;
+    }
+}
+
+/* PC Grid Cell hover effects */
+button[wire\:click*="selectPc"] {
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+button[wire\:click*="selectPc"]:hover {
+    transform: scale(1.08);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Smooth modal animations */
+[x-transition\:enter] {
+    transition-property: opacity, transform;
+    transition-duration: 200ms;
+    transition-timing-function: ease-out;
+}
+
+/* Loading overlay for Livewire */
+[wire\:loading] {
+    opacity: 0.6;
+}
+
+/* Pulse animation for active sessions */
+@keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.4); }
+    50% { box-shadow: 0 0 0 6px rgba(34,197,94,0); }
+}
+.pc-in-use {
+    animation: pulse-green 2s infinite;
+}
