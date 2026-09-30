@@ -4,7 +4,11 @@ use App\Http\Controllers\ComputerController;
 use App\Http\Controllers\ComputerIssueController;
 use App\Http\Controllers\CbtSessionController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FloorPlanController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\WorkloadReportController;
 use Illuminate\Support\Facades\Route;
 
@@ -17,10 +21,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Denah Lab (Floor Plan) - Livewire component
-    Route::get('/floor-plan', function () {
-        return view('floor-plan');
-    })->name('floor-plan');
+    // Denah Lab (Floor Plan) & Lembar Kontrol PC
+    Route::get('/floor-plan', [FloorPlanController::class, 'index'])->name('floor-plan');
+    Route::get('/floor-plan/control-sheet', [FloorPlanController::class, 'controlSheet'])->name('floor-plan.control-sheet');
+    Route::get('/floor-plan/control-sheet/pdf', [FloorPlanController::class, 'controlSheetPdf'])->name('floor-plan.control-sheet.pdf');
 
     // Sesi CBT
     Route::resource('sessions', CbtSessionController::class);
@@ -32,10 +36,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('issues', ComputerIssueController::class)->only(['index', 'create', 'store', 'show']);
     Route::patch('/issues/{issue}/update-status', [ComputerIssueController::class, 'update'])->name('issues.update-status');
 
-    // Komputer (Admin only)
+    // Administrasi Super Admin (Komputer, Users, Roles, Permissions)
     Route::middleware('role:super_admin')->group(function () {
         Route::resource('computers', ComputerController::class)->only(['index', 'edit', 'update']);
         Route::patch('/computers/{computer}/status', [ComputerController::class, 'updateStatus'])->name('computers.update-status');
+
+        // Spatie RBAC & User Management
+        Route::resource('roles', RoleController::class);
+        Route::resource('permissions', PermissionController::class);
+        Route::resource('users', UserController::class);
     });
 
     // Laporan

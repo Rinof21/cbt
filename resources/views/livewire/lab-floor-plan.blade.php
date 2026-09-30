@@ -1,4 +1,22 @@
 <div>
+    {{-- Header Action Bar --}}
+    <div class="flex items-center justify-between gap-3 mb-4">
+        <div class="flex items-center gap-2">
+            <span class="inline-flex items-center px-3 py-1 rounded-lg text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-800">
+                🏢 Lab CBT Utama (8 Baris × 11 Kolom)
+            </span>
+        </div>
+        <div class="flex items-center gap-2">
+            <a href="{{ route('floor-plan.control-sheet') }}" target="_blank" id="btn-top-print-control-sheet"
+               class="inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold rounded-xl transition shadow-md hover:shadow-lg">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+                </svg>
+                <span>Cetak Lembar Kontrol PC</span>
+            </a>
+        </div>
+    </div>
+
     {{-- Total PC & Summary Stats Header --}}
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 sm:gap-3 mb-4">
         <div class="bg-white dark:bg-slate-800 rounded-xl p-2.5 sm:p-3 shadow-xs border border-slate-200 dark:border-slate-700 flex items-center justify-between">
@@ -21,9 +39,9 @@
 
     {{-- Toolbar & Legend --}}
     <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 p-3 sm:p-4 mb-4">
-        <div class="flex flex-wrap items-center gap-3 sm:gap-6">
+        <div class="flex flex-wrap items-center justify-between gap-3 sm:gap-4">
             {{-- Legend --}}
-            <div class="flex flex-wrap items-center gap-3 sm:gap-5 flex-1">
+            <div class="flex flex-wrap items-center gap-3 sm:gap-5">
                 <span class="text-[10px] sm:text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mr-1">Keterangan:</span>
                 <div class="inline-flex items-center gap-1.5">
                     <span style="display: inline-block; width: 12px; height: 12px; min-width: 12px; min-height: 12px; border-radius: 50%; background-color: #2563eb;"></span>
@@ -41,6 +59,17 @@
                     <span class="inline-flex items-center justify-center w-4 h-4 rounded-full bg-amber-400 text-slate-900 text-[9px] font-extrabold shadow-xs">🎫</span>
                     <span class="text-[11px] sm:text-xs text-slate-700 dark:text-slate-300 font-semibold">Ada Tiket Aktif</span>
                 </div>
+            </div>
+
+            {{-- Print Button --}}
+            <div class="flex items-center gap-2">
+                <a href="{{ route('floor-plan.control-sheet') }}" target="_blank" id="btn-print-control-sheet"
+                   class="inline-flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-900 dark:bg-slate-700 dark:hover:bg-slate-600 text-white text-xs font-bold rounded-xl transition shadow-xs">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+                    </svg>
+                    <span>Cetak Lembar Kontrol PC</span>
+                </a>
             </div>
         </div>
     </div>
