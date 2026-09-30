@@ -332,9 +332,13 @@ function confirmForm(event, options = {}) {
 
 // Global DataTables Initialization
 $(document).ready(function() {
+    if ($.fn.DataTable) {
+        $.fn.dataTable.ext.errMode = 'none';
+    }
     if ($.fn.DataTable && $('.datatable').length) {
         $('.datatable').each(function() {
-            if (!$.fn.DataTable.isDataTable(this)) {
+            const hasColspan = $(this).find('tbody tr td[colspan]').length > 0;
+            if (!hasColspan && !$.fn.DataTable.isDataTable(this)) {
                 const table = $(this).DataTable({
                     language: {
                         search: "Cari:",

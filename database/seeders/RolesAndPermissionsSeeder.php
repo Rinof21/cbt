@@ -51,13 +51,13 @@ class RolesAndPermissionsSeeder extends Seeder
         ]);
 
         $admin = User::firstOrCreate(
-            ["email" => "admin@cbtlab.id"],
+            ["email" => "rino.f@untan.ac.id"],
             ["name" => "Administrator Lab CBT", "password" => Hash::make("password")]
         );
         $admin->assignRole("super_admin");
 
         $op = User::firstOrCreate(
-            ["email" => "operator@cbtlab.id"],
+            ["email" => "operator@id"],
             ["name" => "Teknisi IT Lab", "password" => Hash::make("password")]
         );
         $op->assignRole("operator");
