@@ -253,8 +253,10 @@
         {{-- Document Header --}}
         <div class="title-header">
             <div>LEMBAR KONTROL PC</div>
-            <div class="sub-title-header">LAB CBT FK UNTAN</div>
+            <div class="sub-title-header" style="margin-bottom: 8px;">LAB CBT FK UNTAN</div>
         </div>
+
+        <div class="divider"></div>
 
         {{-- Meta Header: Hari, Tanggal, Jam (Vertically Aligned) --}}
         <table style="border-collapse: collapse; margin-bottom: 8px; font-size: 11px;">
