@@ -60,7 +60,7 @@
             text-align: center;
             vertical-align: middle;
             font-size: 11px;
-            font-weight: bold;
+            font-weight: normal;
             padding: 0;
             position: relative;
         }
@@ -90,7 +90,6 @@
         .cell-broken {
             background-color: #fee2e2;
             color: #dc2626;
-            font-weight: 900;
         }
 
         .cell-warning {
@@ -100,14 +99,14 @@
 
         .warning-num {
             color: #b45309;
-            font-weight: bold;
+            font-weight: normal;
             font-size: 11px;
         }
 
         .strikethrough-num {
             text-decoration: line-through;
             color: #dc2626;
-            font-weight: 900;
+            font-weight: normal;
             font-size: 11px;
         }
 
